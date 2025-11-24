@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+    :root {
+        /* Coffee Hunter Design System - Warm Coffee/Wood Tones */
+        --background: 35 25% 96%;
+        --foreground: 25 40% 15%;
+
+        --card: 30 20% 98%;
+        --card-foreground: 25 40% 15%;
+
+        --popover: 30 20% 98%;
+        --popover-foreground: 25 40% 15%;
+
+        --primary: 25 60% 35%;
+        --primary-foreground: 35 25% 96%;
+
+        --secondary: 35 30% 85%;
+        --secondary-foreground: 25 50% 25%;
+
+        --muted: 35 20% 90%;
+        --muted-foreground: 25 20% 45%;
+
+        --accent: 35 45% 70%;
+        --accent-foreground: 25 50% 20%;
+
+        --destructive: 0 65% 50%;
+        --destructive-foreground: 0 0% 100%;
+
+        --border: 35 20% 85%;
+        --input: 35 20% 85%;
+        --ring: 25 60% 40%;
+
+        --radius: 0.5rem;
+
+        /* Coffee-specific colors */
+        --coffee-dark: 25 60% 25%;
+        --coffee-medium: 25 50% 40%;
+        --coffee-light: 35 40% 65%;
+        --wood: 30 35% 50%;
+        --cream: 40 30% 90%;
+
+        /* Gradients */
+        --gradient-coffee: linear-gradient(135deg, hsl(var(--coffee-medium)), hsl(var(--coffee-dark)));
+        --gradient-warm: linear-gradient(180deg, hsl(var(--cream)), hsl(var(--accent)));
+
+        /* Shadows */
+        --shadow-soft: 0 2px 8px hsla(25, 40%, 15%, 0.08);
+        --shadow-medium: 0 4px 16px hsla(25, 40%, 15%, 0.12);
+        --shadow-large: 0 8px 24px hsla(25, 40%, 15%, 0.16);
+    }
+
+    .dark {
+        --background: 25 30% 10%;
+        --foreground: 35 25% 95%;
+
+        --card: 25 25% 12%;
+        --card-foreground: 35 25% 95%;
+
+        --popover: 25 25% 12%;
+        --popover-foreground: 35 25% 95%;
+
+        --primary: 35 45% 65%;
+        --primary-foreground: 25 30% 10%;
+
+        --secondary: 25 20% 20%;
+        --secondary-foreground: 35 25% 90%;
+
+        --muted: 25 15% 18%;
+        --muted-foreground: 35 15% 60%;
+
+        --accent: 30 35% 30%;
+        --accent-foreground: 35 25% 95%;
+
+        --destructive: 0 65% 45%;
+        --destructive-foreground: 0 0% 100%;
+
+        --border: 25 20% 22%;
+        --input: 25 20% 22%;
+        --ring: 35 45% 70%;
+    }
+}
+
+@layer base {
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap');
+
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground font-['Noto_Sans_JP'];
+    }
+}
