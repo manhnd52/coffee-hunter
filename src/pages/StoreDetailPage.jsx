@@ -17,6 +17,7 @@ import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useStoreData } from "@/hooks/useStoreData";
 import { useAuth } from "@/contexts/AuthContext";
+import ReviewSection from "@/components/features/ReviewSection";
 
 /**
  * Store Detail Page - Màn hình chi tiết quán (画面No.7)
@@ -162,74 +163,11 @@ const StoreDetailPage = () => {
                         </Card>
 
                         {/* Reviews Section */}
-                        <Card>
-                            <CardContent className="p-6">
-                                <div className="mb-4 flex items-center justify-between">
-                                    <h3 className="text-lg font-semibold">レビュー</h3>
-                                    {isAuthenticated && (
-                                        <Button>
-                                            <MessageSquare className="mr-2 h-4 w-4" />
-                                            レビューを書く
-                                        </Button>
-                                    )}
-                                </div>
 
-                                <div className="space-y-6">
-                                    {reviews.map((review) => (
-                                        <div key={review.id} className="border-b pb-6 last:border-0">
-                                            {/* Review Header */}
-                                            <div className="mb-3 flex items-center gap-3">
-                                                <img
-                                                    src={review.user_avatar}
-                                                    alt={review.user_name}
-                                                    className="h-10 w-10 rounded-full"
-                                                />
-                                                <div>
-                                                    <p className="font-semibold">{review.user_name}</p>
-                                                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                                        <div className="flex">
-                                                            {[...Array(5)].map((_, i) => (
-                                                                <Star
-                                                                    key={i}
-                                                                    className={`h-3 w-3 ${i < review.rating
-                                                                            ? "fill-yellow-400 text-yellow-400"
-                                                                            : "text-gray-300"
-                                                                        }`}
-                                                                />
-                                                            ))}
-                                                        </div>
-                                                        <span>
-                                                            {new Date(review.created_at).toLocaleDateString(
-                                                                "ja-JP"
-                                                            )}
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            {/* Review Content */}
-                                            <p className="mb-3 text-muted-foreground">
-                                                {review.comment}
-                                            </p>
-
-                                            {/* Review Images */}
-                                            {review.images.length > 0 && (
-                                                <div className="flex gap-2">
-                                                    {review.images.map((img, idx) => (
-                                                        <img
-                                                            key={idx}
-                                                            src={img}
-                                                            alt={`Review ${idx + 1}`}
-                                                            className="h-20 w-20 rounded-lg object-cover"
-                                                        />
-                                                    ))}
-                                                </div>
-                                            )}
-                                        </div>
-                                    ))}
-                                </div>
-                            </CardContent>
-                        </Card>
+                        <ReviewSection 
+                            reviews={reviews} 
+                            isAuthenticated={isAuthenticated} 
+                        />
                     </div>
 
                     {/* Right Column - Info Card */}
