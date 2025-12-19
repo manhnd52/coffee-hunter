@@ -12,6 +12,7 @@ import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import NotFound from "./pages/NotFound";
 import UserFavoritePage from "./pages/UserFavoritePage";
+import UserProfilePage from "./pages/UserProfilePage";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
                         <Route path="/register" element={<RegisterPage />} />
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/favorites" element={<UserFavoritePage />} />
+                        <Route path="/profile" element={<UserProfilePage />} />
                         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                         <Route path="*" element={<NotFound />} />
                     </Routes>
