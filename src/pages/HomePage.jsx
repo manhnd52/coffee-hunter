@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from "react";
-import { MapPin, ArrowRight, Map, Heart } from "lucide-react";
+import { MapPin, ArrowRight, Map, Heart, Bot, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -116,6 +116,36 @@ const HomePage = () => {
     return (
         <div className="min-h-screen bg-background">
             <Header />
+
+            {/* AI Recommendation Banner */}
+            <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200">
+                <div className="container mx-auto px-4 py-6 md:px-8 lg:px-12 max-w-7xl">
+                    <Link to="/recommend">
+                        <div className="flex items-center justify-between p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer group">
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center shadow-lg">
+                                    <Bot className="h-6 w-6 text-white" />
+                                </div>
+                                <div>
+                                    <div className="flex items-center gap-2">
+                                        <h3 className="font-bold text-lg text-gray-900">
+                                            AIレコメンド
+                                        </h3>
+                                        <span className="px-2 py-0.5 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full flex items-center gap-1">
+                                            <Sparkles className="h-3 w-3" />
+                                            NEW
+                                        </span>
+                                    </div>
+                                    <p className="text-sm text-gray-600 mt-0.5">
+                                        チャットでカフェを探す - あなたの好みに合わせて提案します
+                                    </p>
+                                </div>
+                            </div>
+                            <ArrowRight className="h-5 w-5 text-amber-700 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                    </Link>
+                </div>
+            </div>
 
             <main className="container mx-auto px-4 py-8 md:px-8 lg:px-12 max-w-7xl">
                 {/* Hot Pick Section */}
@@ -259,16 +289,16 @@ const HomePage = () => {
                     <div className="grid gap-4 sm:grid-cols-2">
                         {nearbyStores.map((store) => {
                             const isLiked = isFavorite(store.id);
-                            
+
                             return (
                                 <Link key={store.id} to={`/store/${store.id}`} className="block">
                                     <Card className="overflow-hidden hover:shadow-lg transition-shadow relative">
                                         <div className="flex gap-4 p-4">
                                             <div className="w-24 h-24 rounded-lg overflow-hidden">
-                                                <img 
-                                                    src={store.images[0]} 
-                                                    alt={store.name_jp} 
-                                                    className="w-full h-full object-cover" 
+                                                <img
+                                                    src={store.images[0]}
+                                                    alt={store.name_jp}
+                                                    className="w-full h-full object-cover"
                                                 />
                                             </div>
 
@@ -283,15 +313,13 @@ const HomePage = () => {
                                                         <Button
                                                             size="icon"
                                                             variant="ghost"
-                                                            className={`h-8 w-8 rounded-full transition-all ${
-                                                                isLiked ? "bg-red-500 hover:bg-red-600" : "hover:bg-gray-100"
-                                                            }`}
+                                                            className={`h-8 w-8 rounded-full transition-all ${isLiked ? "bg-red-500 hover:bg-red-600" : "hover:bg-gray-100"
+                                                                }`}
                                                             onClick={(e) => handleToggleFavorite(e, store.id)}
                                                         >
                                                             <Heart
-                                                                className={`h-4 w-4 transition-all ${
-                                                                    isLiked ? "fill-white text-white" : "text-gray-400"
-                                                                }`}
+                                                                className={`h-4 w-4 transition-all ${isLiked ? "fill-white text-white" : "text-gray-400"
+                                                                    }`}
                                                             />
                                                         </Button>
                                                     )}
@@ -333,7 +361,7 @@ const HomePage = () => {
                     <div className="space-y-4">
                         {stores.slice(0, 8).map((store) => {
                             const isLiked = isFavorite(store.id);
-                            
+
                             return (
                                 <Link
                                     key={store.id}
@@ -358,26 +386,24 @@ const HomePage = () => {
                                                         <h3 className="font-bold text-xl">
                                                             {store.name_jp}
                                                         </h3>
-                                                        
+
                                                         {/* Favorite Button */}
                                                         {isAuthenticated && (
                                                             <Button
                                                                 size="icon"
                                                                 variant="ghost"
-                                                                className={`h-10 w-10 rounded-full shadow-lg transition-all ${
-                                                                    isLiked ? "bg-red-500 hover:bg-red-600" : "hover:bg-gray-100"
-                                                                }`}
+                                                                className={`h-10 w-10 rounded-full shadow-lg transition-all ${isLiked ? "bg-red-500 hover:bg-red-600" : "hover:bg-gray-100"
+                                                                    }`}
                                                                 onClick={(e) => handleToggleFavorite(e, store.id)}
                                                             >
                                                                 <Heart
-                                                                    className={`h-5 w-5 transition-all ${
-                                                                        isLiked ? "fill-white text-white" : "text-gray-400"
-                                                                    }`}
+                                                                    className={`h-5 w-5 transition-all ${isLiked ? "fill-white text-white" : "text-gray-400"
+                                                                        }`}
                                                                 />
                                                             </Button>
                                                         )}
                                                     </div>
-                                                    
+
                                                     <div className="space-y-2">
                                                         <div className="flex items-center gap-2 text-sm">
                                                             <MapPin className="h-4 w-4 flex-shrink-0 text-muted-foreground" />

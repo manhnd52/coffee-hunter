@@ -86,6 +86,7 @@ export const MOCK_STORES: StoreDetail[] = [
         services: ["無料Wi-Fi", "エアコン完備", "屋外席", "駐車場あり"],
         space_type: "both",
         distance: 1.2,
+        tags: ["date", "photo", "quiet", "elegant", "outdoor", "food"], // Hẹn hò, sống ảo, yên tĩnh, sang trọng, ngoài trời, có đồ ăn
     },
     {
         id: 2,
@@ -123,6 +124,7 @@ export const MOCK_STORES: StoreDetail[] = [
         services: ["無料Wi-Fi", "エアコン完備", "湖の景色", "喫煙エリア"],
         space_type: "indoor",
         distance: 2.4,
+        tags: ["photo", "meeting", "group", "lake", "view", "food"], // Sống ảo, họp, tụ tập, view hồ, có đồ ăn
     },
     {
         id: 3,
@@ -152,6 +154,7 @@ export const MOCK_STORES: StoreDetail[] = [
         services: ["無料Wi-Fi", "静かな環境", "エアコン完備", "電源コンセント"],
         space_type: "indoor",
         distance: 1.5,
+        tags: ["work", "reading", "quiet"], // Làm việc, đọc sách, yên tĩnh
     },
     {
         id: 4,
@@ -188,6 +191,7 @@ export const MOCK_STORES: StoreDetail[] = [
         services: ["無料Wi-Fi", "屋外席", "庭園", "駐車場あり", "ペット可"],
         space_type: "outdoor",
         distance: 3.8,
+        tags: ["nature", "relax", "photo", "pet", "outdoor", "food"], // Thiên nhiên, thư giãn, sống ảo, thú cưng, ngoài trời, có đồ ăn
     },
     {
         id: 5,
@@ -224,6 +228,7 @@ export const MOCK_STORES: StoreDetail[] = [
         services: ["無料Wi-Fi", "エアコン完備", "電源コンセント", "デリバリー可"],
         space_type: "indoor",
         distance: 2.1,
+        tags: ["work", "meeting", "food"], // Làm việc, họp, có đồ ăn
     },
     {
         id: 6,
@@ -260,6 +265,7 @@ export const MOCK_STORES: StoreDetail[] = [
         services: ["無料Wi-Fi", "屋外席", "景色", "バー"],
         space_type: "outdoor",
         distance: 0.8,
+        tags: ["photo", "date", "view", "bar", "outdoor"], // Sống ảo, hẹn hò, view đẹp, bar, ngoài trời
     },
     {
         id: 7,
@@ -296,6 +302,7 @@ export const MOCK_STORES: StoreDetail[] = [
         services: ["無料Wi-Fi", "静かな環境", "エアコン完備", "電源コンセント"],
         space_type: "indoor",
         distance: 1.8,
+        tags: ["reading", "quiet", "work"], // Đọc sách, yên tĩnh, làm việc
     },
     {
         id: 8,
@@ -332,6 +339,7 @@ export const MOCK_STORES: StoreDetail[] = [
         services: ["無料Wi-Fi", "屋外席", "庭園", "ペット可"],
         space_type: "outdoor",
         distance: 4.2,
+        tags: ["nature", "relax", "pet", "group", "outdoor"], // Thiên nhiên, thư giãn, thú cưng, tụ tập, ngoài trời
     },
     {
         id: 9,
@@ -368,6 +376,7 @@ export const MOCK_STORES: StoreDetail[] = [
         services: ["無料Wi-Fi", "エアコン完備", "電源コンセント", "静かな環境"],
         space_type: "indoor",
         distance: 2.7,
+        tags: ["work", "quiet"], // Làm việc, yên tĩnh
     },
     {
         id: 10,
@@ -404,6 +413,7 @@ export const MOCK_STORES: StoreDetail[] = [
         services: ["無料Wi-Fi", "屋外席", "湖の景色", "駐車場あり"],
         space_type: "both",
         distance: 5.1,
+        tags: ["lake", "view", "outdoor", "photo", "relax", "food"], // View hồ, ngoài trời, sống ảo, thư giãn, có đồ ăn
     },
     {
         id: 11,
@@ -433,6 +443,7 @@ export const MOCK_STORES: StoreDetail[] = [
         services: ["無料Wi-Fi", "エアコン完備", "電源コンセント", "朝食メニュー"],
         space_type: "indoor",
         distance: 3.2,
+        tags: ["work", "breakfast", "food"], // Làm việc, bữa sáng, có đồ ăn
     },
     {
         id: 12,
@@ -462,6 +473,7 @@ export const MOCK_STORES: StoreDetail[] = [
         services: ["無料Wi-Fi", "エアコン完備", "駐車場あり", "会議室"],
         space_type: "both",
         distance: 4.5,
+        tags: ["meeting", "work", "group", "food"], // Họp, làm việc, nhóm, có đồ ăn
     },
     {
         id: 13,
@@ -491,6 +503,7 @@ export const MOCK_STORES: StoreDetail[] = [
         services: ["無料Wi-Fi", "エアコン完備", "静かな環境", "クラシック音楽"],
         space_type: "indoor",
         distance: 1.9,
+        tags: ["reading", "quiet", "music", "elegant", "food"], // Đọc sách, yên tĩnh, âm nhạc, sang trọng, có đồ ăn
     },
     {
         id: 14,
@@ -520,6 +533,7 @@ export const MOCK_STORES: StoreDetail[] = [
         services: ["無料Wi-Fi", "屋外席", "川の景色", "モーニング"],
         space_type: "outdoor",
         distance: 6.2,
+        tags: ["breakfast", "view", "outdoor", "relax", "food"], // Bữa sáng, view đẹp, ngoài trời, thư giãn, có đồ ăn
     },
     {
         id: 15,
@@ -549,6 +563,7 @@ export const MOCK_STORES: StoreDetail[] = [
         services: ["無料Wi-Fi", "エアコン完備", "手作りケーキ", "電源コンセント"],
         space_type: "indoor",
         distance: 2.8,
+        tags: ["dessert", "work", "quiet", "food"], // Bánh ngọt, làm việc, yên tĩnh, có đồ ăn
     }
 ];
 
