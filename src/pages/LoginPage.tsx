@@ -146,6 +146,18 @@ const LoginPage: React.FC = () => {
                     アカウント作成
                   </button>
                 </div>
+
+                {/* Back to Home Link */}
+                <div className="text-center pt-2">
+                  <button
+                    type="button"
+                    onClick={() => navigate('/')}
+                    disabled={isLoading}
+                    className="text-amber-600 hover:text-amber-700 disabled:text-amber-400 disabled:cursor-not-allowed text-sm underline transition"
+                  >
+                    ホームページへ戻る
+                  </button>
+                </div>
               </form>
             </div>
           </div>
