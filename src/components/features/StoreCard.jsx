@@ -1,5 +1,5 @@
 import React from "react";
-import { MapPin, Star, Heart, ArrowRight, Clock } from "lucide-react";
+import { MapPin, Star, Heart, ArrowRight, Clock, Navigation } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -34,6 +34,13 @@ const StoreCard = ({ store, compact = false }) => {
                                 <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                                 <span>{store.avg_rating}</span>
                                 <span>({store.review_count})</span>
+                                {store.distance && (
+                                    <>
+                                        <span className="mx-1">•</span>
+                                        <Navigation className="h-3 w-3 inline flex-shrink-0" />
+                                        <span>{store.distance}km</span>
+                                    </>
+                                )}
                             </div>
                             <p className="text-xs text-muted-foreground line-clamp-1 mt-1 flex items-center gap-1">
                                 <MapPin className="h-3 w-3 inline flex-shrink-0" />
