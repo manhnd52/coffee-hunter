@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ArrowLeft, List, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import StoreCard from "@/components/features/StoreCard";
 import FilterPanel from "@/components/features/FilterPanel";
@@ -15,7 +15,9 @@ import { useStoreData } from "@/hooks/useStoreData";
  * Đã tích hợp OpenStreetMap qua Leaflet
  */
 const MapPage = () => {
-    const { filterStores, sortStores } = useStoreData();
+    const { filterStores, sortStores, stores } = useStoreData();
+    const [searchParams] = useSearchParams();
+    const hasInitFromQuery = useRef(false);
 
     // State quản lý việc chọn quán
     const [selectedStore, setSelectedStore] = useState(null);
@@ -32,6 +34,23 @@ const MapPage = () => {
         filterStores(minRating, selectedServices, selectedSpaceTypes),
         sortBy
     );
+
+    // Preselect store when coming from detail page with ?storeId=xxx
+    useEffect(() => {
+        if (hasInitFromQuery.current) return;
+        const storeId = searchParams.get("storeId");
+        if (!storeId) return;
+
+        const target = (filteredStores.length ? filteredStores : stores).find(
+            (s) => String(s.id) === storeId
+        );
+        if (!target) return;
+
+        hasInitFromQuery.current = true;
+        setSelectedStore(target);
+        setExpandedStore(target);
+        setShowList(true);
+    }, [searchParams, filteredStores, stores]);
 
     const handleSelectStore = (store) => {
         setSelectedStore(store);

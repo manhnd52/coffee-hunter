@@ -10,6 +10,7 @@ import { useStoreData } from "@/hooks/useStoreData";
 import { useAuth } from "@/contexts/AuthContext";
 import ReviewSection from "@/components/features/ReviewSection";
 import { ReviewTrigger } from "@/components/features/ReviewTrigger";
+import { Link as RouterLink } from "react-router-dom";
 
 const StoreDetailPage = () => {
   const { id } = useParams();
@@ -229,7 +230,13 @@ const StoreDetailPage = () => {
             
 
             {/* Reviews */}
-            <ReviewSection reviews={reviews} />
+            <ReviewSection 
+              reviews={reviews}
+              onAddReview={handleNewReview}
+              storeId={store.id}
+              isAuthenticated={isAuthenticated}
+              currentUser={currentUser}
+            />
           </div>
 
           {/* RIGHT COLUMN */}
@@ -267,6 +274,15 @@ const StoreDetailPage = () => {
                     />
                   ))}
                 </div>
+
+                <Separator className="my-4" />
+
+                <RouterLink to={`/map?storeId=${store.id}`} className="block">
+                  <Button variant="secondary" className="w-full justify-start gap-2">
+                    <MapPin className="h-4 w-4" />
+                    マップで見る
+                  </Button>
+                </RouterLink>
 
                 <Separator className="my-4" />
 
