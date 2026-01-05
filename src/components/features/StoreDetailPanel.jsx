@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowLeft, Star, MapPin, Clock, Phone, Image as ImageIcon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -33,8 +34,15 @@ const StoreDetailPanel = ({ store, onBack }) => {
                 <div className="p-6 space-y-6">
                     {/* Tên & Rating */}
                     <div>
-                        <h2 className="text-2xl font-bold text-gray-900">{store.name_jp}</h2>
-                        <div className="flex items-center gap-2 mt-2">
+                        <div className="flex items-center gap-2 justify-between mb-2">
+                            <h2 className="text-2xl font-bold text-gray-900 flex-1">{store.name_jp}</h2>
+                            <Link to={`/store/${store.id}`}>
+                                <Button size="sm" variant="outline" className="h-8 px-2 text-xs whitespace-nowrap flex-shrink-0">
+                                    詳細を見る
+                                </Button>
+                            </Link>
+                        </div>
+                        <div className="flex items-center gap-2">
                             <div className="flex items-center text-yellow-500">
                                 <Star className="fill-current w-5 h-5" />
                                 <span className="ml-1 font-bold">{store.avg_rating}</span>

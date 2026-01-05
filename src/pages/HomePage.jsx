@@ -42,13 +42,16 @@ const getHotPickStores = (stores) => {
 /**
  * Near By Youロジック：距離、お気に入り、レーティングで最大5件
  */
-const getNearByStores = (stores, isAuthenticated, favoritesArray = []) => {
+const getNearByStores = (stores, isAuthenticated, favoritesArray = [], computeDistanceKm) => {
   return stores
     .map((store) => {
       let score = 0;
 
       // Distance
-      const distanceScore = Math.max(0, 100 - store.distance * 10);
+      const distanceKm = computeDistanceKm ? computeDistanceKm(store) : Number.POSITIVE_INFINITY;
+      const distanceScore = Number.isFinite(distanceKm)
+        ? Math.max(0, 100 - distanceKm * 10)
+        : 0;
       score += distanceScore;
 
       // Favorite bonus only when logged in
@@ -62,11 +65,15 @@ const getNearByStores = (stores, isAuthenticated, favoritesArray = []) => {
 
       return {
         ...store,
+        distanceKm,
         nearByScore: score,
         isFavorite: isAuthenticated ? favoritesArray.includes(store.id) : false,
       };
     })
-    .sort((a, b) => b.nearByScore - a.nearByScore)
+    .sort((a, b) => {
+      if (b.nearByScore !== a.nearByScore) return b.nearByScore - a.nearByScore;
+      return (a.distanceKm ?? Number.POSITIVE_INFINITY) - (b.distanceKm ?? Number.POSITIVE_INFINITY);
+    })
     .slice(0, 5);
 };
 
@@ -78,6 +85,41 @@ const HomePage = () => {
   const { stores, favorites, toggleFavorite, isFavorite } = useStoreData();
   const { currentUser, isAuthenticated } = useAuth();
   const [currentHotPick, setCurrentHotPick] = useState(0);
+  const [userLocation, setUserLocation] = useState(null);
+
+  // Lấy vị trí người dùng để tính khoảng cách thực
+  useEffect(() => {
+    if (!navigator?.geolocation) return;
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setUserLocation({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+      },
+      () => setUserLocation(null),
+      { enableHighAccuracy: false, timeout: 5000 }
+    );
+  }, []);
+
+  const computeDistanceKm = (store) => {
+    if (userLocation && store.latitude && store.longitude) {
+      const toRad = (deg) => (deg * Math.PI) / 180;
+      const R = 6371;
+      const dLat = toRad(store.latitude - userLocation.lat);
+      const dLon = toRad(store.longitude - userLocation.lng);
+      const lat1 = toRad(userLocation.lat);
+      const lat2 = toRad(store.latitude);
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
+    return Number.POSITIVE_INFINITY;
+  };
+
+  const formatDistance = (store) => {
+    const d = computeDistanceKm(store);
+    return Number.isFinite(d) ? `${d.toFixed(1)}km` : "―";
+  };
 
   // Hot Pick計算（メモ化）
   const hotPickStores = useMemo(() => getHotPickStores(stores), [stores]);
@@ -95,8 +137,8 @@ const HomePage = () => {
 
   // Near By You計算（メモ化）
   const nearbyStores = useMemo(
-    () => getNearByStores(stores, isAuthenticated, favorites),
-    [stores, isAuthenticated, favorites]
+    () => getNearByStores(stores, isAuthenticated, favorites, computeDistanceKm),
+    [stores, isAuthenticated, favorites, userLocation]
   );
 
   // Hot Pickナビゲーション
@@ -234,7 +276,7 @@ const HomePage = () => {
                       {hotPickStores[currentHotPick].address_jp}
                     </span>
                     <span className="ml-auto text-xs font-medium">
-                      {hotPickStores[currentHotPick].distance}km
+                      {formatDistance(hotPickStores[currentHotPick])}
                     </span>
                   </div>
 
@@ -362,7 +404,7 @@ const HomePage = () => {
 
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
                           <MapPin className="h-4 w-4" />
-                          <span>{store.distance}km</span>
+                          <span>{formatDistance(store)}</span>
                         </div>
                       </div>
                     </div>

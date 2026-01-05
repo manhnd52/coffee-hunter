@@ -25,6 +25,8 @@ const SearchResultPage = () => {
 
     const { stores } = useStoreData();
 
+    const [userLocation, setUserLocation] = useState(null);
+
     // Filter states
     const [selectedSpaceTypes, setSelectedSpaceTypes] = useState([]);
     const [selectedServices, setSelectedServices] = useState([]);
@@ -37,6 +39,40 @@ const SearchResultPage = () => {
     // Filtered and sorted results
     const [displayStores, setDisplayStores] = useState([]);
     const [paginatedStores, setPaginatedStores] = useState([]);
+
+    // Lấy vị trí người dùng để sắp xếp theo khoảng cách
+    useEffect(() => {
+        if (!navigator?.geolocation) return;
+        navigator.geolocation.getCurrentPosition(
+            (pos) => {
+                setUserLocation({
+                    lat: pos.coords.latitude,
+                    lng: pos.coords.longitude,
+                });
+            },
+            () => {
+                setUserLocation(null);
+            },
+            { enableHighAccuracy: false, timeout: 5000 }
+        );
+    }, []);
+
+    const computeDistanceKm = (store) => {
+        if (userLocation && store.latitude && store.longitude) {
+            const toRad = (deg) => (deg * Math.PI) / 180;
+            const R = 6371;
+            const dLat = toRad(store.latitude - userLocation.lat);
+            const dLon = toRad(store.longitude - userLocation.lng);
+            const lat1 = toRad(userLocation.lat);
+            const lat2 = toRad(store.latitude);
+            const a =
+                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            return R * c;
+        }
+        return Number.POSITIVE_INFINITY;
+    };
 
     // Reset filters khi search rỗng và có timestamp (submit search rỗng)
     useEffect(() => {
@@ -82,9 +118,12 @@ const SearchResultPage = () => {
             );
         }
 
+        // Sort by distance to user
+        results = [...results].sort((a, b) => computeDistanceKm(a) - computeDistanceKm(b));
+
         setDisplayStores(results);
         setCurrentPage(1); // Reset to first page when filters change
-    }, [query, selectedSpaceTypes, selectedServices, minRating, stores]);
+    }, [query, selectedSpaceTypes, selectedServices, minRating, stores, userLocation]);
 
     // Update paginated results when displayStores or currentPage changes
     useEffect(() => {
@@ -149,7 +188,11 @@ const SearchResultPage = () => {
                                 {/* Store List */}
                                 <div className="space-y-8">
                                     {paginatedStores.map((store) => (
-                                        <StoreListItem key={store.id} store={store} />
+                                        <StoreListItem
+                                            key={store.id}
+                                            store={store}
+                                            distanceKm={computeDistanceKm(store)}
+                                        />
                                     ))}
                                 </div>
 

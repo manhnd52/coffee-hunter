@@ -10,7 +10,10 @@ import { Card, CardContent } from "@/components/ui/card";
  * - Row 2: 3 icons ngang (MapPin, Clock, Car) + Arrow button (phải sát)
  * @param {Object} store - Thông tin quán cà phê
  */
-const StoreListItem = ({ store }) => {
+const StoreListItem = ({ store, distanceKm }) => {
+    const formattedDistance = Number.isFinite(distanceKm)
+        ? `${distanceKm.toFixed(1)}km`
+        : null;
     return (
         <Link to={`/store/${store.id}`} className="block">
             <Card className="group overflow-hidden transition-all hover:shadow-lg">
@@ -85,11 +88,11 @@ const StoreListItem = ({ store }) => {
                                     </div>
 
                                     {/* Distance - Khoảng cách thực tế */}
-                                    {store.distance && (
+                                    {formattedDistance && (
                                         <div className="flex items-center gap-2">
                                             <Car className="h-5 w-5 flex-shrink-0" />
                                             <span className="text-sm sm:text-base font-medium">
-                                                {store.distance}km
+                                                {formattedDistance}
                                             </span>
                                         </div>
                                     )}

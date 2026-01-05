@@ -53,7 +53,7 @@ const StoreCard = ({ store, compact = false }) => {
                         </div>
 
                         {/* Action */}
-                        <Link to={`/store/${store.id}`}>
+                        <Link to={`/store/${store.id}`} onClick={(e) => e.stopPropagation()}>
                             <Button size="icon" variant="ghost" className="h-8 w-8">
                                 <ArrowRight className="h-4 w-4" />
                             </Button>
