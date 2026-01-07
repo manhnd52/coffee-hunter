@@ -85,6 +85,7 @@ const HomePage = () => {
   const { stores, favorites, toggleFavorite, isFavorite } = useStoreData();
   const { currentUser, isAuthenticated } = useAuth();
   const [currentHotPick, setCurrentHotPick] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const [userLocation, setUserLocation] = useState(null);
 
   // Lấy vị trí người dùng để tính khoảng cách thực
@@ -125,15 +126,16 @@ const HomePage = () => {
   const hotPickStores = useMemo(() => getHotPickStores(stores), [stores]);
 
   // Auto slide every 3s
+  // Auto slide every 3s
   useEffect(() => {
-    if (!hotPickStores.length) return;
+    if (!hotPickStores.length || isPaused) return;
 
     const interval = setInterval(() => {
       setCurrentHotPick((prev) => (prev + 1) % hotPickStores.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [hotPickStores]);
+  }, [hotPickStores, currentHotPick, isPaused]);
 
   // Near By You計算（メモ化）
   const nearbyStores = useMemo(
@@ -228,7 +230,11 @@ const HomePage = () => {
           </div>
 
           {hotPickStores[currentHotPick] && (
-            <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <Card
+              className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+            >
               <div className="grid gap-6 md:grid-cols-2">
                 {/* Images Grid */}
                 <div className="grid grid-cols-2 gap-2 p-4">
@@ -237,17 +243,15 @@ const HomePage = () => {
                     .map((img, idx) => (
                       <div
                         key={idx}
-                        className={`overflow-hidden rounded-lg ${
-                          idx === 0
+                        className={`overflow-hidden rounded-lg ${idx === 0
                             ? "col-span-2 aspect-video"
                             : "aspect-square"
-                        }`}
+                          }`}
                       >
                         <img
                           src={img}
-                          alt={`${hotPickStores[currentHotPick].name_jp} ${
-                            idx + 1
-                          }`}
+                          alt={`${hotPickStores[currentHotPick].name_jp} ${idx + 1
+                            }`}
                           className="h-full w-full object-cover transition-transform hover:scale-105"
                         />
                       </div>
@@ -315,11 +319,10 @@ const HomePage = () => {
               <button
                 key={idx}
                 onClick={() => setCurrentHotPick(idx)}
-                className={`h-2 rounded-full transition-all ${
-                  idx === currentHotPick
+                className={`h-2 rounded-full transition-all ${idx === currentHotPick
                     ? "w-8 bg-amber-600"
                     : "w-2 bg-gray-300 hover:bg-gray-400"
-                }`}
+                  }`}
                 aria-label={`スライド ${idx + 1} へ移動`}
               />
             ))}
@@ -378,19 +381,17 @@ const HomePage = () => {
                             <Button
                               size="icon"
                               variant="ghost"
-                              className={`h-8 w-8 rounded-full transition-all ${
-                                isLiked
+                              className={`h-8 w-8 rounded-full transition-all ${isLiked
                                   ? "bg-red-500 hover:bg-red-600"
                                   : "hover:bg-gray-100"
-                              }`}
+                                }`}
                               onClick={(e) => handleToggleFavorite(e, store.id)}
                             >
                               <Heart
-                                className={`h-4 w-4 transition-all ${
-                                  isLiked
+                                className={`h-4 w-4 transition-all ${isLiked
                                     ? "fill-white text-white"
                                     : "text-gray-400"
-                                }`}
+                                  }`}
                               />
                             </Button>
                           )}
@@ -463,21 +464,19 @@ const HomePage = () => {
                               <Button
                                 size="icon"
                                 variant="ghost"
-                                className={`h-10 w-10 rounded-full shadow-lg transition-all ${
-                                  isLiked
+                                className={`h-10 w-10 rounded-full shadow-lg transition-all ${isLiked
                                     ? "bg-red-500 hover:bg-red-600"
                                     : "hover:bg-gray-100"
-                                }`}
+                                  }`}
                                 onClick={(e) =>
                                   handleToggleFavorite(e, store.id)
                                 }
                               >
                                 <Heart
-                                  className={`h-5 w-5 transition-all ${
-                                    isLiked
+                                  className={`h-5 w-5 transition-all ${isLiked
                                       ? "fill-white text-white"
                                       : "text-gray-400"
-                                  }`}
+                                    }`}
                                 />
                               </Button>
                             )}
