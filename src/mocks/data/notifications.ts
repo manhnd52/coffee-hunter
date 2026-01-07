@@ -8,7 +8,7 @@ export const MOCK_NOTIFICATIONS: Notification[] = [
         content_jp: "タイホー区に新しいカフェ「グリーンガーデン」がオープンしました。ぜひチェックしてください！",
         is_read: false,
         is_starred: false,
-        created_at: "2024-12-24T08:00:00",
+        created_at: "2025-12-24T08:00:00",
     },
     {
         id: 2,
@@ -17,7 +17,7 @@ export const MOCK_NOTIFICATIONS: Notification[] = [
         content_jp: "お気に入りのカフェで週末限定20%オフセールを開催中です。この機会をお見逃しなく！",
         is_read: false,
         is_starred: true,
-        created_at: "2024-12-23T10:30:00",
+        created_at: "2025-12-23T10:30:00",
     },
     {
         id: 3,
@@ -26,7 +26,7 @@ export const MOCK_NOTIFICATIONS: Notification[] = [
         content_jp: "あなたのレビューが承認されました。他のユーザーの参考になります！",
         is_read: true,
         is_starred: false,
-        created_at: "2024-12-22T14:20:00",
+        created_at: "2025-12-22T14:20:00",
     },
     {
         id: 4,
@@ -35,7 +35,7 @@ export const MOCK_NOTIFICATIONS: Notification[] = [
         content_jp: "ABC店舗では本日限定で全商品15%オフキャンペーンを実施しています。",
         is_read: true,
         is_starred: false,
-        created_at: "2024-12-21T09:15:00",
+        created_at: "2025-12-21T09:15:00",
     },
     {
         id: 5,
@@ -44,7 +44,7 @@ export const MOCK_NOTIFICATIONS: Notification[] = [
         content_jp: "あなたがお気に入りに追加した「ブルーマウンテンカフェ」に新しいレビューが投稿されました。",
         is_read: false,
         is_starred: false,
-        created_at: "2024-12-20T16:45:00",
+        created_at: "2025-12-20T16:45:00",
     },
     {
         id: 6,
@@ -53,7 +53,7 @@ export const MOCK_NOTIFICATIONS: Notification[] = [
         content_jp: "あなたの好みに合ったカフェを見つけました。「サンライズコーヒー」をチェックしてみませんか？",
         is_read: true,
         is_starred: true,
-        created_at: "2024-12-19T11:30:00",
+        created_at: "2025-12-19T11:30:00",
     },
     {
         id: 7,
@@ -62,7 +62,7 @@ export const MOCK_NOTIFICATIONS: Notification[] = [
         content_jp: "レビュー投稿で50ポイントが追加されました。現在の合計ポイント：350ポイント",
         is_read: true,
         is_starred: false,
-        created_at: "2024-12-18T13:20:00",
+        created_at: "2025-12-18T13:20:00",
     },
     {
         id: 8,
@@ -71,6 +71,6 @@ export const MOCK_NOTIFICATIONS: Notification[] = [
         content_jp: "12月25日まで、対象店舗でクリスマス限定メニューをお楽しみいただけます。",
         is_read: false,
         is_starred: false,
-        created_at: "2024-12-17T08:00:00",
+        created_at: "2025-12-17T08:00:00",
     },
 ];
