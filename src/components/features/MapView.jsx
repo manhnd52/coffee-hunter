@@ -68,7 +68,8 @@ const MapUpdater = ({ selectedStore, userLocation, focusUserTrigger, expandedSto
 };
 
 // --- COMPONENT CHÍNH ---
-const MapView = ({ stores, selectedStore, onSelectStore, expandedStore, onSetExpandedStore }) => {
+// --- COMPONENT CHÍNH ---
+const MapView = ({ stores, selectedStore, onSelectStore, expandedStore, onSetExpandedStore, hasInitialTarget = false }) => {
     // Tọa độ mặc định (Hồ Hoàn Kiếm)
     const defaultCenter = [21.0285, 105.8542];
 
@@ -78,7 +79,7 @@ const MapView = ({ stores, selectedStore, onSelectStore, expandedStore, onSetExp
     const [focusUserTrigger, setFocusUserTrigger] = useState(0);
 
     // Hàn lấy vị trí thật
-    const handleGetLocation = () => {
+    const handleGetLocation = (shouldFocus = true) => {
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
@@ -87,14 +88,14 @@ const MapView = ({ stores, selectedStore, onSelectStore, expandedStore, onSetExp
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
                     });
-                    setFocusUserTrigger(prev => prev + 1); // Kích hoạt zoom
+                    if (shouldFocus) setFocusUserTrigger(prev => prev + 1); // Kích hoạt zoom
                 },
                 (error) => {
                     console.error("Lỗi lấy vị trí:", error);
                     // Fallback: Nếu lỗi (hoặc user từ chối), giả vờ đang ở Nhà Hát Lớn Hà Nội để demo cho đẹp
                     alert("位置情報を取得できません。デモ位置を使用しています。");
                     setUserLocation({ lat: 21.0250, lng: 105.8560 });
-                    setFocusUserTrigger(prev => prev + 1);
+                    if (shouldFocus) setFocusUserTrigger(prev => prev + 1);
                 }
             );
         } else {
@@ -110,9 +111,12 @@ const MapView = ({ stores, selectedStore, onSelectStore, expandedStore, onSetExp
     };
 
     // Tự động lấy vị trí khi vào app lần đầu (Optional)
+    // Nếu có initial target (storeId trên URL), không auto focus vào user location
     useEffect(() => {
-        handleGetLocation();
-    }, []); return (
+        handleGetLocation(!hasInitialTarget);
+    }, []);
+
+    return (
         <div className="relative h-full w-full">
             <MapContainer
                 center={defaultCenter}
@@ -164,12 +168,13 @@ const MapView = ({ stores, selectedStore, onSelectStore, expandedStore, onSetExp
                 <Button
                     size="icon"
                     className="rounded-full shadow-xl bg-white text-primary hover:bg-gray-100 h-12 w-12"
-                    onClick={handleGetLocation}
+                    onClick={() => handleGetLocation(true)}
                     title="私の位置"
                 >
                     <Navigation className="h-6 w-6 fill-current" />
                 </Button>
             </div>
+
         </div>
     );
 };

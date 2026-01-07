@@ -151,6 +151,7 @@ const MapPage = () => {
                         onSelectStore={handleSelectStore}
                         expandedStore={expandedStore}
                         onSetExpandedStore={setExpandedStore}
+                        hasInitialTarget={!!searchParams.get("storeId")}
                     />
                 </div>
             </div>
