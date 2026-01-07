@@ -22,6 +22,7 @@ const StoreDetailPage = () => {
     getReviewsByStoreId,
     isFavorite,
     toggleFavorite,
+    addReview,
   } = useStoreData();
 
   const store = getStoreById(id);
@@ -32,8 +33,12 @@ const StoreDetailPage = () => {
     return getReviewsByStoreId(parseInt(id)) || [];
   });
 
-  const handleNewReview = (newReview) => {
-    setReviews((prev) => [newReview, ...prev]);
+  const handleNewReview = (storeId, newReviewData) => {
+    // 1. Persist review (save to localStorage via useStoreData)
+    const savedReview = addReview(storeId, newReviewData);
+
+    // 2. Update local UI state immediately
+    setReviews((prev) => [savedReview, ...prev]);
   };
 
   const [selectedImage, setSelectedImage] = useState(0);
@@ -117,15 +122,13 @@ const StoreDetailPage = () => {
                 <Button
                   size="icon"
                   variant="secondary"
-                  className={`absolute right-4 top-4 h-10 w-10 rounded-full shadow-lg transition-all ${
-                    isLiked ? "bg-red-500 hover:bg-red-600" : ""
-                  }`}
+                  className={`absolute right-4 top-4 h-10 w-10 rounded-full shadow-lg transition-all ${isLiked ? "bg-red-500 hover:bg-red-600" : ""
+                    }`}
                   onClick={() => toggleFavorite(store.id)}
                 >
                   <Heart
-                    className={`h-5 w-5 transition-all ${
-                      isLiked ? "fill-white text-white" : ""
-                    }`}
+                    className={`h-5 w-5 transition-all ${isLiked ? "fill-white text-white" : ""
+                      }`}
                   />
                 </Button>
               </div>
@@ -136,11 +139,10 @@ const StoreDetailPage = () => {
                   <button
                     key={idx}
                     onClick={() => setSelectedImage(idx)}
-                    className={`overflow-hidden rounded-lg border-2 transition-all ${
-                      selectedImage === idx
+                    className={`overflow-hidden rounded-lg border-2 transition-all ${selectedImage === idx
                         ? "border-primary"
                         : "border-transparent"
-                    }`}
+                      }`}
                   >
                     <img
                       src={img}
@@ -227,10 +229,10 @@ const StoreDetailPage = () => {
             )}
 
             {/* Review Form */}
-            
+
 
             {/* Reviews */}
-            <ReviewSection 
+            <ReviewSection
               reviews={reviews}
               onAddReview={handleNewReview}
               storeId={store.id}
@@ -248,15 +250,13 @@ const StoreDetailPage = () => {
                   <Button
                     size="icon"
                     variant="ghost"
-                    className={`transition-all ${
-                      isLiked ? "bg-red-100 hover:bg-red-200" : ""
-                    }`}
+                    className={`transition-all ${isLiked ? "bg-red-100 hover:bg-red-200" : ""
+                      }`}
                     onClick={() => toggleFavorite(store.id)}
                   >
                     <Heart
-                      className={`h-6 w-6 transition-all ${
-                        isLiked ? "fill-red-500 text-red-500" : ""
-                      }`}
+                      className={`h-6 w-6 transition-all ${isLiked ? "fill-red-500 text-red-500" : ""
+                        }`}
                     />
                   </Button>
                 </div>
@@ -266,11 +266,10 @@ const StoreDetailPage = () => {
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={`h-5 w-5 ${
-                        i < Math.floor(store.avg_rating)
+                      className={`h-5 w-5 ${i < Math.floor(store.avg_rating)
                           ? "fill-yellow-400 text-yellow-400"
                           : "text-gray-300"
-                      }`}
+                        }`}
                     />
                   ))}
                 </div>
