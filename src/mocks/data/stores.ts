@@ -1,554 +1,681 @@
 import type { StoreDetail } from '../../types/store';
 
 export const MOCK_STORES: StoreDetail[] = [
-    {
-        id: 1,
-        name_jp: "カフェ・デュ・パルク",
-        address_jp: "ハノイ市ホアンキエム区リークアンダオ通り15番地",
-        latitude: 21.0285,
-        longitude: 105.8542,
-        opening_hours_jp: "月-日: 07:00-22:00",
-        phone_number: "+84 24 3825 1234",
-        description_jp: "フランス風のエレガントなカフェで、静かな雰囲気の中でコーヒーを楽しめます。ハノイ旧市街の中心に位置し、観光の合間の休憩に最適です。",
-        avg_rating: 4.7,
-        review_count: 156,
-        main_image_url: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800",
-        images: [
-            "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800",
-            "https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800",
-            "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800",
-        ],
-        menu: [
-            {
-                id: 1,
-                name_jp: "ベトナムコーヒー",
-                price: 35000,
-                description_jp: "伝統的なベトナムスタイルのコンデンスミルク入りコーヒー",
-                image_url: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400",
-            },
-            {
-                id: 2,
-                name_jp: "カプチーノ",
-                price: 45000,
-                description_jp: "イタリアンスタイルのクリーミーなカプチーノ",
-                image_url: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400",
-            },
-            {
-                id: 3,
-                name_jp: "エッグコーヒー",
-                price: 40000,
-                description_jp: "ハノイ名物の卵黄クリーム入りコーヒー",
-                image_url: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400",
-            },
-            {
-                id: 26,
-                name_jp: "エッグコーヒー",
-                price: 40000,
-                description_jp: "ハノイ名物の卵黄クリーム入りコーヒー",
-                image_url: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400",
-            },
-            {
-                id: 27,
-                name_jp: "エッグコーヒー",
-                price: 40000,
-                description_jp: "ハノイ名物の卵黄クリーム入りコーヒー",
-                image_url: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400",
-            },
-            {
-                id: 28,
-                name_jp: "エッグコーヒー",
-                price: 40000,
-                description_jp: "ハノイ名物の卵黄クリーム入りコーヒー",
-                image_url: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400",
-            },
-            {
-                id: 29,
-                name_jp: "エッグコーヒー",
-                price: 40000,
-                description_jp: "ハノイ名物の卵黄クリーム入りコーヒー",
-                image_url: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400",
-            },
-            {
-                id: 30,
-                name_jp: "エッグコーヒー",
-                price: 40000,
-                description_jp: "ハノイ名物の卵黄クリーム入りコーヒー",
-                image_url: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400",
-            },
-            {
-                id: 31,
-                name_jp: "エッグコーヒー",
-                price: 40000,
-                description_jp: "ハノイ名物の卵黄クリーム入りコーヒー",
-                image_url: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400",
-            },
-        ],
-        services: ["無料Wi-Fi", "エアコン完備", "屋外席", "駐車場あり"],
-        space_type: "both",
-        tags: ["date", "photo", "quiet", "elegant", "outdoor", "food"], // Hẹn hò, sống ảo, yên tĩnh, sang trọng, ngoài trời, có đồ ăn
-    },
-    {
-        id: 2,
-        name_jp: "ホアンキエム・コーヒーハウス",
-        address_jp: "ハノイ市ホアンキエム区ハンバイ通り28番地",
-        latitude: 21.0292,
-        longitude: 105.8526,
-        opening_hours_jp: "月-日: 08:00-23:00",
-        phone_number: "+84 24 3926 5678",
-        description_jp: "湖の景色を望む2階建てのカフェ。地元の人々と観光客の両方に人気のスポットです。",
-        avg_rating: 4.5,
-        review_count: 203,
-        main_image_url: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800",
-        images: [
-            "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800",
-            "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=800",
-            "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800",
-        ],
-        menu: [
-            {
-                id: 4,
-                name_jp: "アイスラテ",
-                price: 40000,
-                description_jp: "冷たいエスプレッソミルク",
-                image_url: "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400",
-            },
-            {
-                id: 5,
-                name_jp: "抹茶ラテ",
-                price: 50000,
-                description_jp: "本格的な日本の抹茶使用",
-                image_url: "https://images.unsplash.com/photo-1536013266003-e2e1cd09d7b8?w=400",
-            },
-        ],
-        services: ["無料Wi-Fi", "エアコン完備", "湖の景色", "喫煙エリア"],
-        space_type: "indoor",
-        tags: ["photo", "meeting", "group", "lake", "view", "food"], // Sống ảo, họp, tụ tập, view hồ, có đồ ăn
-    },
-    {
-        id: 3,
-        name_jp: "静寂カフェ",
-        address_jp: "ハノイ市ハイバーチュン区チャンクアンカイ通り45番地",
-        latitude: 21.0127,
-        longitude: 105.8448,
-        opening_hours_jp: "火-日: 09:00-21:00、月曜定休",
-        phone_number: "+84 24 3943 7890",
-        description_jp: "静かで落ち着いた雰囲気のカフェ。読書や仕事に最適な空間を提供しています。",
-        avg_rating: 4.8,
-        review_count: 89,
-        main_image_url: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800",
-        images: [
-            "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800",
-            "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800",
-        ],
-        menu: [
-            {
-                id: 6,
-                name_jp: "ドリップコーヒー",
-                price: 38000,
-                description_jp: "厳選された豆を使用したハンドドリップ",
-                image_url: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400",
-            },
-        ],
-        services: ["無料Wi-Fi", "静かな環境", "エアコン完備", "電源コンセント"],
-        space_type: "indoor",
-        tags: ["work", "reading", "quiet"], // Làm việc, đọc sách, yên tĩnh
-    },
-    {
-        id: 4,
-        name_jp: "グリーンガーデン・カフェ",
-        address_jp: "ハノイ市タイホー区トーゴック通り12番地",
-        latitude: 21.0583,
-        longitude: 105.8244,
-        opening_hours_jp: "月-日: 07:00-22:00",
-        phone_number: "+84 24 3718 2345",
-        description_jp: "緑に囲まれた庭園カフェ。自然の中でリラックスできる空間です。",
-        avg_rating: 4.6,
-        review_count: 127,
-        main_image_url: "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=800",
-        images: [
-            "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=800",
-            "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=800",
-        ],
-        menu: [
-            {
-                id: 7,
-                name_jp: "アメリカーノ",
-                price: 35000,
-                description_jp: "すっきりとした味わいのアメリカンコーヒー",
-                image_url: "https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=400",
-            },
-            {
-                id: 8,
-                name_jp: "フルーツスムージー",
-                price: 45000,
-                description_jp: "新鮮なフルーツを使用した健康的なスムージー",
-                image_url: "https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400",
-            },
-        ],
-        services: ["無料Wi-Fi", "屋外席", "庭園", "駐車場あり", "ペット可"],
-        space_type: "outdoor",
-        tags: ["nature", "relax", "photo", "pet", "outdoor", "food"], // Thiên nhiên, thư giãn, sống ảo, thú cưng, ngoài trời, có đồ ăn
-    },
-    {
-        id: 5,
-        name_jp: "モダン・ブリュー",
-        address_jp: "ハノイ市ドンダー区チャンフンダオ通り89番地",
-        latitude: 21.0245,
-        longitude: 105.8412,
-        opening_hours_jp: "月-金: 08:00-22:00、土日: 09:00-23:00",
-        phone_number: "+84 24 3822 4567",
-        description_jp: "現代的なデザインのカフェ。スペシャリティコーヒーと美味しいデザートが自慢です。",
-        avg_rating: 4.7,
-        review_count: 178,
-        main_image_url: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800",
-        images: [
-            "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800",
-            "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=800",
-        ],
-        menu: [
-            {
-                id: 9,
-                name_jp: "フラットホワイト",
-                price: 48000,
-                description_jp: "ベルベットのような滑らかなミルクフォーム",
-                image_url: "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=400",
-            },
-            {
-                id: 10,
-                name_jp: "ティラミス",
-                price: 55000,
-                description_jp: "自家製のイタリアンデザート",
-                image_url: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400",
-            },
-        ],
-        services: ["無料Wi-Fi", "エアコン完備", "電源コンセント", "デリバリー可"],
-        space_type: "indoor",
-        tags: ["work", "meeting", "food"], // Làm việc, họp, có đồ ăn
-    },
-    {
-        id: 6,
-        name_jp: "ルーフトップ・ビュー",
-        address_jp: "ハノイ市バーディン区キムマー通り34番地",
-        latitude: 21.0278,
-        longitude: 105.8133,
-        opening_hours_jp: "月-日: 10:00-23:00",
-        phone_number: "+84 24 3733 8901",
-        description_jp: "屋上からハノイの街並みを一望できる開放的なカフェ。夕暮れ時は特に美しい景色が楽しめます。",
-        avg_rating: 4.9,
-        review_count: 245,
-        main_image_url: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=800",
-        images: [
-            "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=800",
-            "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800",
-        ],
-        menu: [
-            {
-                id: 11,
-                name_jp: "サンセット・カクテル",
-                price: 65000,
-                description_jp: "夕日を眺めながら楽しむ特製カクテル",
-                image_url: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400",
-            },
-            {
-                id: 12,
-                name_jp: "コールドブリュー",
-                price: 42000,
-                description_jp: "水出しコーヒーのすっきりとした味わい",
-                image_url: "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400",
-            },
-        ],
-        services: ["無料Wi-Fi", "屋外席", "景色", "バー"],
-        space_type: "outdoor",
-        tags: ["photo", "date", "view", "bar", "outdoor"], // Sống ảo, hẹn hò, view đẹp, bar, ngoài trời
-    },
-    {
-        id: 7,
-        name_jp: "ブックカフェ・リーディング",
-        address_jp: "ハノイ市ホアンキエム区ニャーチュン通り67番地",
-        latitude: 21.0234,
-        longitude: 105.8456,
-        opening_hours_jp: "月-日: 08:00-22:00",
-        phone_number: "+84 24 3826 1122",
-        description_jp: "本棚に囲まれた落ち着いた空間。読書好きにはたまらないブックカフェです。",
-        avg_rating: 4.4,
-        review_count: 134,
-        main_image_url: "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?w=800",
-        images: [
-            "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?w=800",
-            "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800",
-        ],
-        menu: [
-            {
-                id: 13,
-                name_jp: "ブレンドコーヒー",
-                price: 32000,
-                description_jp: "オリジナルブレンドのホットコーヒー",
-                image_url: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400",
-            },
-            {
-                id: 14,
-                name_jp: "チーズケーキ",
-                price: 48000,
-                description_jp: "濃厚でクリーミーなニューヨークスタイル",
-                image_url: "https://images.unsplash.com/photo-1533134486753-c833f0ed4866?w=400",
-            },
-        ],
-        services: ["無料Wi-Fi", "静かな環境", "エアコン完備", "電源コンセント"],
-        space_type: "indoor",
-        tags: ["reading", "quiet", "work"], // Đọc sách, yên tĩnh, làm việc
-    },
-    {
-        id: 8,
-        name_jp: "トロピカル・ガーデン",
-        address_jp: "ハノイ市タイホー区ゴックカイン通り89番地",
-        latitude: 21.0625,
-        longitude: 105.8302,
-        opening_hours_jp: "月-日: 07:00-21:00",
-        phone_number: "+84 24 3719 3344",
-        description_jp: "熱帯植物に囲まれた緑豊かなカフェ。自然の中で心身ともにリフレッシュできます。",
-        avg_rating: 4.3,
-        review_count: 98,
-        main_image_url: "https://images.unsplash.com/photo-1464979681340-bdd28a61699e?w=800",
-        images: [
-            "https://images.unsplash.com/photo-1464979681340-bdd28a61699e?w=800",
-            "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800",
-        ],
-        menu: [
-            {
-                id: 15,
-                name_jp: "マンゴースムージー",
-                price: 42000,
-                description_jp: "新鮮なマンゴーをたっぷり使用",
-                image_url: "https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400",
-            },
-            {
-                id: 16,
-                name_jp: "ココナッツコーヒー",
-                price: 38000,
-                description_jp: "ココナッツミルクとコーヒーの絶妙な組み合わせ",
-                image_url: "https://images.unsplash.com/photo-1509785307050-d4066910ec1e?w=400",
-            },
-        ],
-        services: ["無料Wi-Fi", "屋外席", "庭園", "ペット可"],
-        space_type: "outdoor",
-        tags: ["nature", "relax", "pet", "group", "outdoor"], // Thiên nhiên, thư giãn, thú cưng, tụ tập, ngoài trời
-    },
-    {
-        id: 9,
-        name_jp: "ミニマリスト・カフェ",
-        address_jp: "ハノイ市ドンダー区グエンコンチュウ通り123番地",
-        latitude: 21.0189,
-        longitude: 105.8345,
-        opening_hours_jp: "火-日: 09:00-20:00、月曜定休",
-        phone_number: "+84 24 3844 5566",
-        description_jp: "シンプルで洗練されたデザインのカフェ。集中して作業したい方におすすめです。",
-        avg_rating: 4.6,
-        review_count: 167,
-        main_image_url: "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=800",
-        images: [
-            "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=800",
-            "https://images.unsplash.com/photo-1542223533-3e4e9cd48923?w=800",
-        ],
-        menu: [
-            {
-                id: 17,
-                name_jp: "エスプレッソ",
-                price: 30000,
-                description_jp: "濃厚な味わいのシングルショット",
-                image_url: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=400",
-            },
-            {
-                id: 18,
-                name_jp: "アーモンドクロワッサン",
-                price: 40000,
-                description_jp: "サクサクの生地とアーモンドクリーム",
-                image_url: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400",
-            },
-        ],
-        services: ["無料Wi-Fi", "エアコン完備", "電源コンセント", "静かな環境"],
-        space_type: "indoor",
-        tags: ["work", "quiet"], // Làm việc, yên tĩnh
-    },
-    {
-        id: 10,
-        name_jp: "レイクサイド・テラス",
-        address_jp: "ハノイ市タイホー区チュオンチン通り56番地",
-        latitude: 21.0678,
-        longitude: 105.8234,
-        opening_hours_jp: "月-日: 06:00-22:00",
-        phone_number: "+84 24 3717 7788",
-        description_jp: "西湖のほとりに位置する開放的なカフェ。湖を眺めながらゆったりとした時間を過ごせます。",
-        avg_rating: 4.8,
-        review_count: 312,
-        main_image_url: "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=800",
-        images: [
-            "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=800",
-            "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=800",
-        ],
-        menu: [
-            {
-                id: 19,
-                name_jp: "シグネチャーラテ",
-                price: 52000,
-                description_jp: "店主こだわりのオリジナルラテ",
-                image_url: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400",
-            },
-            {
-                id: 20,
-                name_jp: "ワッフル",
-                price: 58000,
-                description_jp: "生クリームとフルーツをトッピング",
-                image_url: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=400",
-            },
-        ],
-        services: ["無料Wi-Fi", "屋外席", "湖の景色", "駐車場あり"],
-        space_type: "both",
-        tags: ["lake", "view", "outdoor", "photo", "relax", "food"], // View hồ, ngoài trời, sống ảo, thư giãn, có đồ ăn
-    },
-    {
-        id: 11,
-        name_jp: "アーバン・エスプレッソ",
-        address_jp: "ハノイ市バーディン区グエンチーミンカイ通り78番地",
-        latitude: 21.0156,
-        longitude: 105.8267,
-        opening_hours_jp: "月-日: 07:30-21:30",
-        phone_number: "+84 24 3735 9900",
-        description_jp: "都会的な雰囲気のモダンカフェ。ビジネスマンに人気の朝食メニューが豊富です。",
-        avg_rating: 4.4,
-        review_count: 142,
-        main_image_url: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800",
-        images: [
-            "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800",
-            "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800",
-        ],
-        menu: [
-            {
-                id: 21,
-                name_jp: "ダブルエスプレッソ",
-                price: 35000,
-                description_jp: "濃厚な味わいのダブルショット",
-                image_url: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=400",
-            },
-        ],
-        services: ["無料Wi-Fi", "エアコン完備", "電源コンセント", "朝食メニュー"],
-        space_type: "indoor",
-        tags: ["work", "breakfast", "food"], // Làm việc, bữa sáng, có đồ ăn
-    },
-    {
-        id: 12,
-        name_jp: "ハイランド・カフェ",
-        address_jp: "ハノイ市カウザイ区ファムヴァンドン通り234番地",
-        latitude: 21.0341,
-        longitude: 105.8089,
-        opening_hours_jp: "月-日: 08:00-22:30",
-        phone_number: "+84 24 3756 1122",
-        description_jp: "山岳地帯の豆を使用した本格コーヒー。広々とした店内でゆったり過ごせます。",
-        avg_rating: 4.5,
-        review_count: 189,
-        main_image_url: "https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800",
-        images: [
-            "https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800",
-            "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=800",
-        ],
-        menu: [
-            {
-                id: 22,
-                name_jp: "高原コーヒー",
-                price: 38000,
-                description_jp: "ダラット産の高品質アラビカ種",
-                image_url: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400",
-            },
-        ],
-        services: ["無料Wi-Fi", "エアコン完備", "駐車場あり", "会議室"],
-        space_type: "both",
-        tags: ["meeting", "work", "group", "food"], // Họp, làm việc, nhóm, có đồ ăn
-    },
-    {
-        id: 13,
-        name_jp: "ヴィンテージ・ブリュー",
-        address_jp: "ハノイ市ホアンキエム区ハンガイ通り89番地",
-        latitude: 21.0311,
-        longitude: 105.8512,
-        opening_hours_jp: "火-日: 10:00-23:00、月曜定休",
-        phone_number: "+84 24 3928 3344",
-        description_jp: "レトロな雰囲気が魅力の老舗カフェ。クラシック音楽が流れる落ち着いた空間です。",
-        avg_rating: 4.7,
-        review_count: 276,
-        main_image_url: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800",
-        images: [
-            "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800",
-            "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?w=800",
-        ],
-        menu: [
-            {
-                id: 23,
-                name_jp: "クラシックモカ",
-                price: 48000,
-                description_jp: "チョコレートとエスプレッソの絶妙なハーモニー",
-                image_url: "https://images.unsplash.com/photo-1578374173705-0a63403f9cf1?w=400",
-            },
-        ],
-        services: ["無料Wi-Fi", "エアコン完備", "静かな環境", "クラシック音楽"],
-        space_type: "indoor",
-        tags: ["reading", "quiet", "music", "elegant", "food"], // Đọc sách, yên tĩnh, âm nhạc, sang trọng, có đồ ăn
-    },
-    {
-        id: 14,
-        name_jp: "サンライズ・テラス",
-        address_jp: "ハノイ市ロンビエン区ゴックトゥイ通り156番地",
-        latitude: 21.0445,
-        longitude: 105.8623,
-        opening_hours_jp: "月-日: 06:00-20:00",
-        phone_number: "+84 24 3874 5566",
-        description_jp: "早朝から営業している川沿いのカフェ。朝日を眺めながらモーニングコーヒーを。",
-        avg_rating: 4.3,
-        review_count: 118,
-        main_image_url: "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=800",
-        images: [
-            "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=800",
-            "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800",
-        ],
-        menu: [
-            {
-                id: 24,
-                name_jp: "モーニングセット",
-                price: 55000,
-                description_jp: "コーヒーとバインミーのセット",
-                image_url: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400",
-            },
-        ],
-        services: ["無料Wi-Fi", "屋外席", "川の景色", "モーニング"],
-        space_type: "outdoor",
-        tags: ["breakfast", "view", "outdoor", "relax", "food"], // Bữa sáng, view đẹp, ngoài trời, thư giãn, có đồ ăn
-    },
-    {
-        id: 15,
-        name_jp: "コージー・コーナー",
-        address_jp: "ハノイ市ハイバーチュン区バーフエン通り45番地",
-        latitude: 21.0089,
-        longitude: 105.8401,
-        opening_hours_jp: "月-日: 08:30-22:00",
-        phone_number: "+84 24 3941 7788",
-        description_jp: "アットホームな雰囲気の小さなカフェ。手作りケーキが自慢です。",
-        avg_rating: 4.6,
-        review_count: 201,
-        main_image_url: "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=800",
-        images: [
-            "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=800",
-            "https://images.unsplash.com/photo-1542223533-3e4e9cd48923?w=800",
-        ],
-        menu: [
-            {
-                id: 25,
-                name_jp: "手作りチーズケーキ",
-                price: 45000,
-                description_jp: "毎日店内で焼き上げる自家製ケーキ",
-                image_url: "https://images.unsplash.com/photo-1533134486753-c833f0ed4866?w=400",
-            },
-        ],
-        services: ["無料Wi-Fi", "エアコン完備", "手作りケーキ", "電源コンセント"],
-        space_type: "indoor",
-        tags: ["dessert", "work", "quiet", "food"], // Bánh ngọt, làm việc, yên tĩnh, có đồ ăn
-    }
+  {
+    "id": 1,
+    "name_jp": "カフェ・デュ・パルク",
+    "address_jp": "ハノイ市ホアンキエム区リークアンダオ通り15番地",
+    "latitude": 21.0285,
+    "longitude": 105.8542,
+    "opening_hours_jp": "月-日: 07:00-22:00",
+    "phone_number": "+84 24 3825 1234",
+    "description_jp": "フランス風のエレガントなカフェで、静かな雰囲気の中でコーヒーを楽しめます。ハノイ旧市街の中心に位置し、観光の合間の休憩に最適です。",
+    "avg_rating": 4.7,
+    "review_count": 156,
+    "main_image_url": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800",
+      "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800"
+    ],
+    "menu": [
+      {
+        "id": 1,
+        "name_jp": "ベトナムコーヒー",
+        "price": 35000,
+        "description_jp": "伝統的なベトナムスタイルのコンデンスミルク入りコーヒー",
+        "image_url": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400"
+      },
+      {
+        "id": 2,
+        "name_jp": "カプチーノ",
+        "price": 45000,
+        "description_jp": "イタリアンスタイルのクリーミーなカプチーノ",
+        "image_url": "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400"
+      },
+      {
+        "id": 3,
+        "name_jp": "エッグコーヒー",
+        "price": 40000,
+        "description_jp": "ハノイ名物の卵黄クリーム入りコーヒー",
+        "image_url": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400"
+      }
+    ],
+    "services": [
+      "無料Wi-Fi",
+      "エアコン完備",
+      "屋外席",
+      "駐車場あり"
+    ],
+    "space_type": "both",
+    "tags": [
+      "date",
+      "photo",
+      "quiet",
+      "elegant",
+      "outdoor",
+      "food"
+    ]
+  },
+  {
+    "id": 2,
+    "name_jp": "ホアンキエム・コーヒーハウス",
+    "address_jp": "ハノイ市ホアンキエム区ハンバイ通り28番地",
+    "latitude": 21.0292,
+    "longitude": 105.8526,
+    "opening_hours_jp": "月-日: 08:00-23:00",
+    "phone_number": "+84 24 3926 5678",
+    "description_jp": "湖の景色を望む2階建てのカフェ。地元の人々と観光客の両方に人気のスポットです。",
+    "avg_rating": 4.5,
+    "review_count": 203,
+    "main_image_url": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800",
+      "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=800",
+      "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800"
+    ],
+    "menu": [
+      {
+        "id": 4,
+        "name_jp": "アイスラテ",
+        "price": 40000,
+        "description_jp": "冷たいエスプレッソミルク",
+        "image_url": "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400"
+      },
+      {
+        "id": 5,
+        "name_jp": "抹茶ラテ",
+        "price": 50000,
+        "description_jp": "本格的な日本の抹茶使用",
+        "image_url": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=400"
+      }
+    ],
+    "services": [
+      "無料Wi-Fi",
+      "エアコン完備",
+      "湖の景色",
+      "喫煙エリア"
+    ],
+    "space_type": "indoor",
+    "tags": [
+      "photo",
+      "meeting",
+      "group",
+      "lake",
+      "view",
+      "food"
+    ]
+  },
+  {
+    "id": 3,
+    "name_jp": "静寂カフェ",
+    "address_jp": "ハノイ市ハイバーチュン区チャンクアンカイ通り45番地",
+    "latitude": 21.0127,
+    "longitude": 105.8448,
+    "opening_hours_jp": "火-日: 09:00-21:00、月曜定休",
+    "phone_number": "+84 24 3943 7890",
+    "description_jp": "静かで落ち着いた雰囲気のカフェ。読書や仕事に最適な空間を提供しています。",
+    "avg_rating": 4.8,
+    "review_count": 89,
+    "main_image_url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800",
+      "https://images.unsplash.com/photo-1625693680219-f9f68627091e?w=800",
+      "https://images.unsplash.com/photo-1570084682657-845124514007?w=800"
+    ],
+    "menu": [
+      {
+        "id": 6,
+        "name_jp": "ドリップコーヒー",
+        "price": 38000,
+        "description_jp": "厳選された豆を使用したハンドドリップ",
+        "image_url": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400"
+      }
+    ],
+    "services": [
+      "無料Wi-Fi",
+      "静かな環境",
+      "エアコン完備",
+      "電源コンセント"
+    ],
+    "space_type": "indoor",
+    "tags": [
+      "work",
+      "reading",
+      "quiet"
+    ]
+  },
+  {
+    "id": 4,
+    "name_jp": "グリーンガーデン・カフェ",
+    "address_jp": "ハノイ市タイホー区トーゴック通り12番地",
+    "latitude": 21.0583,
+    "longitude": 105.8244,
+    "opening_hours_jp": "月-日: 07:00-22:00",
+    "phone_number": "+84 24 3718 2345",
+    "description_jp": "緑に囲まれた庭園カフェ。自然の中でリラックスできる空間です。",
+    "avg_rating": 4.6,
+    "review_count": 127,
+    "main_image_url": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=800",
+      "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=800"
+    ],
+    "menu": [
+      {
+        "id": 7,
+        "name_jp": "アメリカーノ",
+        "price": 35000,
+        "description_jp": "すっきりとした味わいのアメリカンコーヒー",
+        "image_url": "https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=400"
+      },
+      {
+        "id": 8,
+        "name_jp": "フルーツスムージー",
+        "price": 45000,
+        "description_jp": "新鮮なフルーツを使用した健康的なスムージー",
+        "image_url": "https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400"
+      }
+    ],
+    "services": [
+      "無料Wi-Fi",
+      "屋外席",
+      "庭園",
+      "駐車場あり",
+      "ペット可"
+    ],
+    "space_type": "outdoor",
+    "tags": [
+      "nature",
+      "relax",
+      "photo",
+      "pet",
+      "outdoor",
+      "food"
+    ]
+  },
+  {
+    "id": 5,
+    "name_jp": "モダン・ブリュー",
+    "address_jp": "ハノイ市ドンダー区チャンフンダオ通り89番地",
+    "latitude": 21.0245,
+    "longitude": 105.8412,
+    "opening_hours_jp": "月-金: 08:00-22:00、土日: 09:00-23:00",
+    "phone_number": "+84 24 3822 4567",
+    "description_jp": "現代的なデザインのカフェ。スペシャリティコーヒーと美味しいデザートが自慢です。",
+    "avg_rating": 4.7,
+    "review_count": 178,
+    "main_image_url": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800",
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=800"
+    ],
+    "menu": [
+      {
+        "id": 9,
+        "name_jp": "フラットホワイト",
+        "price": 48000,
+        "description_jp": "ベルベットのような滑らかなミルクフォーム",
+        "image_url": "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=400"
+      },
+      {
+        "id": 10,
+        "name_jp": "ティラミス",
+        "price": 55000,
+        "description_jp": "自家製のイタリアンデザート",
+        "image_url": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400"
+      }
+    ],
+    "services": [
+      "無料Wi-Fi",
+      "エアコン完備",
+      "電源コンセント",
+      "デリバリー可"
+    ],
+    "space_type": "indoor",
+    "tags": [
+      "work",
+      "meeting",
+      "food"
+    ]
+  },
+  {
+    "id": 6,
+    "name_jp": "ルーフトップ・ビュー",
+    "address_jp": "ハノイ市バーディン区キムマー通り34番地",
+    "latitude": 21.0278,
+    "longitude": 105.8133,
+    "opening_hours_jp": "月-日: 10:00-23:00",
+    "phone_number": "+84 24 3733 8901",
+    "description_jp": "屋上からハノイの街並みを一望できる開放的なカフェ。夕暮れ時は特に美しい景色が楽しめます。",
+    "avg_rating": 4.9,
+    "review_count": 245,
+    "main_image_url": "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=800",
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800"
+    ],
+    "menu": [
+      {
+        "id": 11,
+        "name_jp": "サンセット・カクテル",
+        "price": 65000,
+        "description_jp": "夕日を眺めながら楽しむ特製カクテル",
+        "image_url": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400"
+      },
+      {
+        "id": 12,
+        "name_jp": "コールドブリュー",
+        "price": 42000,
+        "description_jp": "水出しコーヒーのすっきりとした味わい",
+        "image_url": "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400"
+      }
+    ],
+    "services": [
+      "無料Wi-Fi",
+      "屋外席",
+      "景色",
+      "バー"
+    ],
+    "space_type": "outdoor",
+    "tags": [
+      "photo",
+      "date",
+      "view",
+      "bar",
+      "outdoor"
+    ]
+  },
+  {
+    "id": 7,
+    "name_jp": "ブックカフェ・リーディング",
+    "address_jp": "ハノイ市ホアンキエム区ニャーチュン通り67番地",
+    "latitude": 21.0234,
+    "longitude": 105.8456,
+    "opening_hours_jp": "月-日: 08:00-22:00",
+    "phone_number": "+84 24 3826 1122",
+    "description_jp": "本棚に囲まれた落ち着いた空間。読書好きにはたまらないブックカフェです。",
+    "avg_rating": 4.4,
+    "review_count": 134,
+    "main_image_url": "https://images.unsplash.com/photo-1619536095378-c96a5639ccc5?w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1619536095378-c96a5639ccc5?w=800",
+      "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800"
+    ],
+    "menu": [
+      {
+        "id": 13,
+        "name_jp": "ブレンドコーヒー",
+        "price": 32000,
+        "description_jp": "オリジナルブレンドのホットコーヒー",
+        "image_url": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400"
+      },
+      {
+        "id": 14,
+        "name_jp": "チーズケーキ",
+        "price": 48000,
+        "description_jp": "濃厚でクリーミーなニューヨークスタイル",
+        "image_url": "https://images.unsplash.com/photo-1734520574435-42fb5dddb46a?w=400"
+      }
+    ],
+    "services": [
+      "無料Wi-Fi",
+      "静かな環境",
+      "エアコン完備",
+      "電源コンセント"
+    ],
+    "space_type": "indoor",
+    "tags": [
+      "reading",
+      "quiet",
+      "work"
+    ]
+  },
+  {
+    "id": 8,
+    "name_jp": "トロピカル・ガーデン",
+    "address_jp": "ハノイ市タイホー区ゴックカイン通り89番地",
+    "latitude": 21.0625,
+    "longitude": 105.8302,
+    "opening_hours_jp": "月-日: 07:00-21:00",
+    "phone_number": "+84 24 3719 3344",
+    "description_jp": "熱帯植物に囲まれた緑豊かなカフェ。自然の中で心身ともにリフレッシュできます。",
+    "avg_rating": 4.3,
+    "review_count": 98,
+    "main_image_url": "https://images.unsplash.com/photo-1464979681340-bdd28a61699e?w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1464979681340-bdd28a61699e?w=800",
+      "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800"
+    ],
+    "menu": [
+      {
+        "id": 15,
+        "name_jp": "マンゴースムージー",
+        "price": 42000,
+        "description_jp": "新鮮なマンゴーをたっぷり使用",
+        "image_url": "https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400"
+      },
+      {
+        "id": 16,
+        "name_jp": "ココナッツコーヒー",
+        "price": 38000,
+        "description_jp": "ココナッツミルクとコーヒーの絶妙な組み合わせ",
+        "image_url": "https://images.unsplash.com/photo-1509785307050-d4066910ec1e?w=400"
+      }
+    ],
+    "services": [
+      "無料Wi-Fi",
+      "屋外席",
+      "庭園",
+      "ペット可"
+    ],
+    "space_type": "outdoor",
+    "tags": [
+      "nature",
+      "relax",
+      "pet",
+      "group",
+      "outdoor"
+    ]
+  },
+  {
+    "id": 9,
+    "name_jp": "ミニマリスト・カフェ",
+    "address_jp": "ハノイ市ドンダー区グエンコンチュウ通り123番地",
+    "latitude": 21.0189,
+    "longitude": 105.8345,
+    "opening_hours_jp": "火-日: 09:00-20:00、月曜定休",
+    "phone_number": "+84 24 3844 5566",
+    "description_jp": "シンプルで洗練されたデザインのカフェ。集中して作業したい方におすすめです。",
+    "avg_rating": 4.6,
+    "review_count": 167,
+    "main_image_url": "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=800",
+      "https://images.unsplash.com/photo-1763459430145-8ddf674c68bd?w=800"
+    ],
+    "menu": [
+      {
+        "id": 17,
+        "name_jp": "エスプレッソ",
+        "price": 30000,
+        "description_jp": "濃厚な味わいのシングルショット",
+        "image_url": "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=400"
+      },
+      {
+        "id": 18,
+        "name_jp": "アーモンドクロワッサン",
+        "price": 40000,
+        "description_jp": "サクサクの生地とアーモンドクリーム",
+        "image_url": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400"
+      }
+    ],
+    "services": [
+      "無料Wi-Fi",
+      "エアコン完備",
+      "電源コンセント",
+      "静かな環境"
+    ],
+    "space_type": "indoor",
+    "tags": [
+      "work",
+      "quiet"
+    ]
+  },
+  {
+    "id": 10,
+    "name_jp": "レイクサイド・テラス",
+    "address_jp": "ハノイ市タイホー区チュオンチン通り56番地",
+    "latitude": 21.0678,
+    "longitude": 105.8234,
+    "opening_hours_jp": "月-日: 06:00-22:00",
+    "phone_number": "+84 24 3717 7788",
+    "description_jp": "西湖のほとりに位置する開放的なカフェ。湖を眺めながらゆったりとした時間を過ごせます。",
+    "avg_rating": 4.8,
+    "review_count": 312,
+    "main_image_url": "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=800",
+      "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=800"
+    ],
+    "menu": [
+      {
+        "id": 19,
+        "name_jp": "シグネチャーラテ",
+        "price": 52000,
+        "description_jp": "店主こだわりのオリジナルラテ",
+        "image_url": "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400"
+      },
+      {
+        "id": 20,
+        "name_jp": "ワッフル",
+        "price": 58000,
+        "description_jp": "生クリームとフルーツをトッピング",
+        "image_url": "https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=400"
+      }
+    ],
+    "services": [
+      "無料Wi-Fi",
+      "屋外席",
+      "湖の景色",
+      "駐車場あり"
+    ],
+    "space_type": "both",
+    "tags": [
+      "lake",
+      "view",
+      "outdoor",
+      "photo",
+      "relax",
+      "food"
+    ]
+  },
+  {
+    "id": 11,
+    "name_jp": "アーバン・エスプレッソ",
+    "address_jp": "ハノイ市バーディン区グエンチーミンカイ通り78番地",
+    "latitude": 21.0156,
+    "longitude": 105.8267,
+    "opening_hours_jp": "月-日: 07:30-21:30",
+    "phone_number": "+84 24 3735 9900",
+    "description_jp": "都会的な雰囲気のモダンカフェ。ビジネスマンに人気の朝食メニューが豊富です。",
+    "avg_rating": 4.4,
+    "review_count": 142,
+    "main_image_url": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800",
+      "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800"
+    ],
+    "menu": [
+      {
+        "id": 21,
+        "name_jp": "ダブルエスプレッソ",
+        "price": 35000,
+        "description_jp": "濃厚な味わいのダブルショット",
+        "image_url": "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=400"
+      }
+    ],
+    "services": [
+      "無料Wi-Fi",
+      "エアコン完備",
+      "電源コンセント",
+      "朝食メニュー"
+    ],
+    "space_type": "indoor",
+    "tags": [
+      "work",
+      "breakfast",
+      "food"
+    ]
+  },
+  {
+    "id": 12,
+    "name_jp": "ハイランド・カフェ",
+    "address_jp": "ハノイ市カウザイ区ファムヴァンドン通り234番地",
+    "latitude": 21.0341,
+    "longitude": 105.8089,
+    "opening_hours_jp": "月-日: 08:00-22:30",
+    "phone_number": "+84 24 3756 1122",
+    "description_jp": "山岳地帯の豆を使用した本格コーヒー。広々とした店内でゆったり過ごせます。",
+    "avg_rating": 4.5,
+    "review_count": 189,
+    "main_image_url": "https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800",
+      "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=800"
+    ],
+    "menu": [
+      {
+        "id": 22,
+        "name_jp": "高原コーヒー",
+        "price": 38000,
+        "description_jp": "ダラット産の高品質アラビカ種",
+        "image_url": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400"
+      }
+    ],
+    "services": [
+      "無料Wi-Fi",
+      "エアコン完備",
+      "駐車場あり",
+      "会議室"
+    ],
+    "space_type": "both",
+    "tags": [
+      "meeting",
+      "work",
+      "group",
+      "food"
+    ]
+  },
+  {
+    "id": 13,
+    "name_jp": "ヴィンテージ・ブリュー",
+    "address_jp": "ハノイ市ホアンキエム区ハンガイ通り89番地",
+    "latitude": 21.0311,
+    "longitude": 105.8512,
+    "opening_hours_jp": "火-日: 10:00-23:00、月曜定休",
+    "phone_number": "+84 24 3928 3344",
+    "description_jp": "レトロな雰囲気が魅力の老舗カフェ。クラシック音楽が流れる落ち着いた空間です。",
+    "avg_rating": 4.7,
+    "review_count": 276,
+    "main_image_url": "https://images.unsplash.com/photo-1705685850015-3005020b01a9?w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1705685850015-3005020b01a9?w=800",
+      "https://images.unsplash.com/photo-1756752945267-c70245c74ca9?w=800",
+      "https://images.unsplash.com/photo-1619536094309-ad21bdc924a8?w=800"
+    ],
+    "menu": [
+      {
+        "id": 23,
+        "name_jp": "クラシックモカ",
+        "price": 48000,
+        "description_jp": "チョコレートとエスプレッソの絶妙なハーモニー",
+        "image_url": "https://images.unsplash.com/photo-1578374173705-0a63403f9cf1?w=400"
+      }
+    ],
+    "services": [
+      "無料Wi-Fi",
+      "エアコン完備",
+      "静かな環境",
+      "クラシック音楽"
+    ],
+    "space_type": "indoor",
+    "tags": [
+      "reading",
+      "quiet",
+      "music",
+      "elegant",
+      "food"
+    ]
+  },
+  {
+    "id": 14,
+    "name_jp": "サンライズ・テラス",
+    "address_jp": "ハノイ市ロンビエン区ゴックトゥイ通り156番地",
+    "latitude": 21.0445,
+    "longitude": 105.8623,
+    "opening_hours_jp": "月-日: 06:00-20:00",
+    "phone_number": "+84 24 3874 5566",
+    "description_jp": "早朝から営業している川沿いのカフェ。朝日を眺めながらモーニングコーヒーを。",
+    "avg_rating": 5.0,
+    "review_count": 118,
+    "main_image_url": "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=800",
+      "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800"
+    ],
+    "menu": [
+      {
+        "id": 24,
+        "name_jp": "モーニングセット",
+        "price": 55000,
+        "description_jp": "コーヒーとバインミーのセット",
+        "image_url": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400"
+      }
+    ],
+    "services": [
+      "無料Wi-Fi",
+      "屋外席",
+      "川の景色",
+      "モーニング"
+    ],
+    "space_type": "outdoor",
+    "tags": [
+      "breakfast",
+      "view",
+      "outdoor",
+      "relax",
+      "food"
+    ]
+  },
+  {
+    "id": 16,
+    "name_jp": "ペット・コーヒー",
+    "address_jp": "ハノイ市タイホー区スアンジエウ通り99番地",
+    "latitude": 21.0701,
+    "longitude": 105.8289,
+    "opening_hours_jp": "火-日: 09:00-21:00",
+    "phone_number": "+84 24 3719 8899",
+    "description_jp": "可愛い猫たちに囲まれて癒しのひとときを。広々とした空間で、ペットと一緒にリラックスできるカフェです。週末は里親探しイベントも開催しています。",
+    "avg_rating": 4.8,
+    "review_count": 310,
+    "main_image_url": "https://images.unsplash.com/photo-1572877820915-82e3e89bac35?w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1572877820915-82e3e89bac35?w=800",
+      "https://images.unsplash.com/photo-1583949654583-4f1d7890acdb?w=800",
+      "https://images.unsplash.com/photo-1611484158526-2218e0b894d6?w=900"
+    ],
+    "menu": [
+      {
+        "id": 26,
+        "name_jp": "肉球ラテ",
+        "price": 55000,
+        "description_jp": "可愛い肉球のアートが描かれたカフェラテ",
+        "image_url": "https://images.unsplash.com/photo-1669150271957-78ac283acc0e?w=400"
+      },
+      {
+        "id": 27,
+        "name_jp": "肉球トリート",
+        "price": 20000,
+        "description_jp": "猫ちゃんと仲良くなれる特製おやつ",
+        "image_url": "https://images.unsplash.com/photo-1671851582844-17a1bfc8f749?w=400"
+      }
+    ],
+    "services": [
+      "無料Wi-Fi",
+      "エアコン完備",
+      "ペット可",
+      "猫のおやつ販売",
+      "里親募集コーナー"
+    ],
+    "space_type": "indoor",
+    "tags": [
+      "animal",
+      "relax",
+      "cat",
+      "cafe",
+      "family"
+    ]
+  }
 ];
 
